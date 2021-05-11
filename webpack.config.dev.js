@@ -10,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js'
     },
+    mode: 'development',
     resolve: {
         extensions: ['.js'],
         alias: {
@@ -69,4 +70,10 @@ module.exports = {
         }),
         new Dotenv(),
     ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new CssMinimizerPlugin()
+        ]
+    }
 }
